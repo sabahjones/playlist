@@ -1,0 +1,35 @@
+<br><br>
+
+<h3><%=@user.name%>'s Playlist</h3>
+
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Times Added</th>
+  </tr>
+
+  <% for song in @songs %>
+    <%@count = 0 %>
+  <tr>
+    <td><%=song.artist%></td>
+    <td><%=song.title%></td>
+
+    <td>
+      <% for all in @allsongs %>
+        <% if song.title == all.title %>
+          <% @count += 1%>
+        <%end%>
+      <%end%>
+      <%=@count%>
+    </td>
+  </tr>
+
+  <%end%>
+</table>
+
+<br><br>
+
+<a href="/songs/index"><button>Dashboard</button></a>
+<br><br>
+<a href="/logout"><button>logout</button></a>

@@ -1,0 +1,30 @@
+<h3>Welcome!</h3>
+
+<h3>Register</h3>
+<form action="/users/register" method='post'>
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+<table>
+  <tr><td>First Name:</td><td><input type="text" name="first_name"></td></tr>
+  <tr><td>Last Name:</td><td><input type="text" name="last_name"></td></tr>
+  <tr><td>Email:</td><td><input type="text" name="email"></td></tr>
+  <tr><td>password:</td><td><input type="password" name="password"></td></tr>
+  <tr><td>confirm password:</td><td><input type="password" name="password_confirmation"></td></tr>
+  <tr><td><input type="submit" value="Register"></td></tr>
+</table>
+</form>
+
+<% if flash[:message] %>
+  <% flash[:message].each do |msg| %>
+    <p><h3><i><%=msg%></h3></i></p>
+  <%end%>
+<%end%>
+
+<h3>Login</h3>
+<form action="/users/login" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+<table>
+  <tr><td>Email:</td><td><input type="text" name="email"></td></tr>
+  <tr><td>password:</td><td><input type="password" name="password"></td></tr>
+  <tr><td><input type="submit" value="Login"></td></tr>
+</table>
+</form>

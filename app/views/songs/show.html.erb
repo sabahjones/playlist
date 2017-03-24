@@ -1,0 +1,36 @@
+
+<br><br><br><br>
+
+
+Others who added
+<i>
+  <%=@song.artist%>
+  <%=@song.title%>:
+</i>
+<br><br>
+<table>
+  <tr><th>Name</th><th>Times added</th></tr>
+
+  <% for name in @listeners %>
+    <% @count = 0 %>
+  <tr>
+    <td>
+      <a href="/users/<%=name.id%>"><%=name.first_name%></a>
+    </td>
+    <td>
+      <% for id in @songlist %>
+        <% if name.id == id.user_id %>
+          <% @count += 1 %>
+        <%end%>
+      <%end%>
+      <%=@count%>
+    </td>
+  </tr>
+  <%end%>
+</table>
+
+<br>
+
+<a href="/songs/index"><button>Dashboard</button></a>
+<br><br>
+<a href="/logout"><button>logout</button></a>
